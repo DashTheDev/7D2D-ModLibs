@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<!-- Versioning -->
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<FileVersion>$(Version)</FileVersion>
+
+		<!-- NuGet -->
+		<Authors>DashTheDev</Authors>
+		<PackageProjectUrl>https://github.com/DashTheDev/7D2D-ModLibs</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/DashTheDev/7D2D-ModLibs</RepositoryUrl>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Copyright>Copyright © 2026 DashTheDev. Licensed under MIT.</Copyright>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="/" />
+		<None Include="LICENSE.txt" Pack="true" PackagePath="/" />
+	</ItemGroup>
+	
+</Project>

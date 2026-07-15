@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="Local.props" Condition="Exists('Local.props')" />
+	<Import Project="Build.props" />
+	<Import Project="../../NuGet.Build.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<OutputType>Library</OutputType>
+		<Version>1.0.3</Version>
+		<RootNamespace>DashTheDev.SDTD.ModCore</RootNamespace>
+		<AssemblyName>DashTheDev.SDTD.ModCore</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<DefineConstants>$(GameVersion)</DefineConstants>
+
+		<!-- NuGet -->
+		<PackageId>DashTheDev.7D2D.ModCore</PackageId>
+		<Description>A core mod library that provides structure and essentials for 7D2D modding.</Description>
+		<PackageTags>7D2D;7DaysToDie;modding;harmony;C#;library;essentials</PackageTags>
+		<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ILRepack" Version="2.0.45" GeneratePathProperty="true" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="DashTheDev.7D2D.ModCore.targets" Pack="true" PackagePath="build" />
+	</ItemGroup>
+</Project>

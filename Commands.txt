@@ -1,0 +1,8 @@
+dotnet new install "Z:\7D2D Mods\ModLibs\Templates\TemplatePackage\bin\Debug\DashTheDev.7D2D.Templates.1.0.0.nupkg"
+dotnet new install DashTheDev.7D2D.Templates
+dotnet new list 7D2D
+
+dotnet new uninstall DashTheDev.7D2D.Templates
+
+dotnet new 7D2DModLib -n MyModLib -o ./Libraries/MyModLib
+dotnet new 7D2DMod -n MyMod -o ./Libraries/MyMod

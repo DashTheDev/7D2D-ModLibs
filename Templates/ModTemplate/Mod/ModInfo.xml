@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml>
+	<Name value="ModTemplate"/>
+	<Author value="YOURNAME"/>
+	<DisplayName value="ModTemplate"/>
+	<Description value="A 7D2D mod."/>
+	<Version value="1.0.0"/>
+</xml>

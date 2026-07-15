@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<ILRepack>$(PkgILRepack)\tools\ILRepack.exe</ILRepack>
+	</PropertyGroup>
+
+	<!-- Consumers can add/remove/override if needed -->
+	<ItemGroup>
+		<ExternalLibPaths Include="$(HarmonyPath)" />
+		<ExternalLibPaths Include="$(ManagedDataPath)" />
+	</ItemGroup>
+
+	<!-- Consumers can add/remove/override if needed -->
+	<ItemGroup>
+		<AssembliesToMerge Include="$(OutputPath)$(AssemblyName).dll" />
+		<AssembliesToMerge Include="$(OutputPath)DashTheDev.SDTD.ModCore.dll" />
+	</ItemGroup>
+	
+	<!-- Merge all dependencies into one assembly. This helps prevent version mismatches for dependencies, but means the code is baked into the consumer -->
+	<Target Name="MergeAssemblies" AfterTargets="Build">
+		
+		<PropertyGroup>
+			<!-- Prepare and format args for ILRepack (external libraries and assemblies to be merged) -->
+			<ILRepackLibs>@(ExternalLibPaths->'/lib:"%(Identity)"', ' ')</ILRepackLibs>
+			<ILRepackAssemblies>@(AssembliesToMerge->'"%(Identity)"', ' ')</ILRepackAssemblies>
+
+			<!-- Set up temporary workspace paths -->
+			<TempMergeDir>$(OutputPath)TempMergeDir\</TempMergeDir>
+			<TempOutputFile>$(TempMergeDir)$(AssemblyName).dll</TempOutputFile>
+		</PropertyGroup>
+
+		<!-- Make sure the temporary folder exists before running ILRepack -->
+		<MakeDir Directories="$(TempMergeDir)" />
+
+		<!-- Execute ILRepack and merge assemblies into target ASSEMBLY_NAME in temp directory -->
+		<Exec Command="$(ILRepack) /verbose $(ILRepackLibs) /out:&quot;$(TempOutputFile)&quot; $(ILRepackAssemblies)" />
+
+		<!-- Delete unmerged assemblies and their PDB files -->
+		<Delete Files="@(AssembliesToMerge);@(AssembliesToMerge->'%(RelativeDir)%(Filename).pdb')" />
+
+		<!-- Grab new ASSEMBLY_NAME files from temp directory -->
+		<ItemGroup>
+			<FilesToMove Include="$(TempMergeDir)$(AssemblyName).*" />
+		</ItemGroup>
+
+		<!-- Move the output files back into the main output folder -->
+		<Move SourceFiles="@(FilesToMove)" DestinationFolder="$(OutputPath)" />
+
+		<!-- Delete the temp directory -->
+		<RemoveDir Directories="$(TempMergeDir)" />
+
+		<Message Importance="high" Text="MergeAssemblies success!" />
+	</Target>
+
+	<!-- Copy output to DeployTargetPath (i.e 7D2D mods folder) -->
+	<Target Name="CopyOutputToDeployPath" AfterTargets="MergeAssemblies" Condition="'$(DeployTargetPath)' != ''">
+		<Message Text="Copying output to $(DeployTargetPath)" Importance="high" />
+
+		<ItemGroup>
+			<OutputFiles Include="$(OutputPath)**\*.*" />
+		</ItemGroup>
+
+		<Copy
+		  SourceFiles="@(OutputFiles)"
+		  DestinationFiles="@(OutputFiles->'$(DeployTargetPath)%(RecursiveDir)%(Filename)%(Extension)')"
+		  SkipUnchangedFiles="true" />
+	</Target>
+</Project>

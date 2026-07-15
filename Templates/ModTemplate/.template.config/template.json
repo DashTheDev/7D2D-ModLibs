@@ -1,0 +1,13 @@
+{
+  "author": "DashTheDev",
+  "classifications": [ "7D2D", "Mod" ],
+  "identity": "DashTheDev.7D2D-ModTemplate",
+  "name": "7 Days to Die Mod",
+  "shortName": "7D2DMod",
+  "sourceName": "ModTemplate",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "exclusions": [ "**/bin/**", "**/obj/**" ]
+}
