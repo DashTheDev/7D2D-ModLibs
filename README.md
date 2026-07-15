@@ -1,36 +1,13 @@
-# Efficient Questing
-[![Latest Release](https://img.shields.io/github/v/release/DashTheDev/7D2D-EfficientQuesting)](https://github.com/DashTheDev/7D2D-EfficientQuesting/releases/latest)
-<br>
-![7D2D v2.6](https://img.shields.io/badge/7D2D-v2.6-brightgreen)
-<br>
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+# 7D2D-ModLibs
+A collection of libraries and templates for [7 Days to Die](https://store.steampowered.com/app/251570/7_Days_to_Die/) mod development.
 
-A [7 Days to Die](https://store.steampowered.com/app/251570/7_Days_to_Die/) mod that adds a collection of quality of life improvements to questing.
+## Contents
 
-- Click a quest icon on the map to set it as your tracked quest
-- Right click a quest icon on the map to open a quest context popup. There you can toggle tracking, remove, view details, share or teleport to
-- Automatically tracks the next closest quest on quest advanced, completed or failed
-- Allows the player to have more than one active quest at a time
+| Project | Description |
+|---|---|
+| [ModCore](./Libraries/ModCore/README.md) | A foundational library for 7 Days to Die mod development |
+| [TemplatePackage](./Templates/TemplatePackage/README.md) | A collection of project templates for 7 Days to Die modding |
 
-## Installation
-Download the [latest release](https://github.com/DashTheDev/7D2D-EfficientQuesting/releases/latest), unzip and drop the `EfficientQuesting` folder into your game's `Mods` directory.
+## License
 
-> [!NOTE]  
-> Users only need to install this mod on the client!
-
-## Development Setup
-1. Ensure you have [Visual Studio](https://visualstudio.microsoft.com/) and [7D2D](https://store.steampowered.com/app/251570/7_Days_to_Die/) installed
-2. Clone the repository
-3. Create a `Local.props` file in the root of the project with the following content:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <!-- Insert game path here (i.e Z:\SteamLibrary\steamapps\common\7 Days To Die) -->
-        <GamePath>YOUR_GAME_PATH_GOES_HERE</GamePath>
-    </PropertyGroup>
-</Project>
-```
-
-4. Open the solution in [Visual Studio](https://visualstudio.microsoft.com/) and build.
+This repo is licensed under the [MIT License](LICENSE).
