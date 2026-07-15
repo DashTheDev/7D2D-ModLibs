@@ -37,7 +37,7 @@ dotnet new 7D2DModLib -n MyModUtils
 
 Both commands will scaffold a project with your chosen name, with namespaces, assembly names, and file names all set up correctly.
 
-All you will need to do is update the `local.props` file to point to your 7D2D installation.
+All you will need to do is to create and update the `local.props` file to point to your 7D2D installation. For more information read the `README.md` file that is generated.
 
 ## Updating
 To update to the latest version of the templates:
