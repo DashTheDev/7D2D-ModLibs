@@ -38,6 +38,10 @@ public abstract class XmlModConfig : BaseModConfig
         {
             throw new Exception($"[{nameof(XmlModConfig)}] Unable to load {FileName}!", ex);
         }
+        finally
+        {
+            Save();
+        }
     }
 
     public override void Save()
