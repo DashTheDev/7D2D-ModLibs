@@ -38,6 +38,10 @@
 			<HintPath>$(ManagedDataPath)\UnityEngine.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(ManagedDataPath)\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 	</ItemGroup>
 
 </Project>

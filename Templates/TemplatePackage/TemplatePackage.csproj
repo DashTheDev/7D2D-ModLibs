@@ -4,13 +4,13 @@
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 
 		<!-- NuGet -->
 		<PackageId>DashTheDev.7D2D.Templates</PackageId>
 		<Description>A collection of .NET project templates for 7D2D modding.</Description>
 		<PackageTags>7D2D;7DaysToDie;modding;harmony;C#;template</PackageTags>
-		<PackageReleaseNotes>Fixed sln file not included correct csproj</PackageReleaseNotes>
+		<PackageReleaseNotes>ModTemplate now includes a basic console command</PackageReleaseNotes>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
 		<PackageType>Template</PackageType>
