@@ -7,7 +7,7 @@
 	<PropertyGroup>
 		<TargetFramework>net48</TargetFramework>
 		<OutputType>Library</OutputType>
-		<Version>1.0.4</Version>
+		<Version>1.0.5</Version>
 		<RootNamespace>DashTheDev.SDTD.ModCore</RootNamespace>
 		<AssemblyName>DashTheDev.SDTD.ModCore</AssemblyName>
 		<LangVersion>latest</LangVersion>
@@ -18,7 +18,7 @@
 		<PackageId>DashTheDev.7D2D.ModCore</PackageId>
 		<Description>A core mod library that provides structure and essentials for 7D2D modding.</Description>
 		<PackageTags>7D2D;7DaysToDie;modding;harmony;C#;library;essentials</PackageTags>
-		<PackageReleaseNotes>XmlModConfig now saves after loading. In case saved file is not up to date with config class structure</PackageReleaseNotes>
+		<PackageReleaseNotes>XmlModConfig now preserves whitespace and comments when saving to file</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
